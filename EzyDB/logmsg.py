@@ -24,4 +24,23 @@ def log(message, status:Status|Any , add_time: bool = True, print_able:bool= Tru
     print(f" {status} {message}{' '* (term - len(ctime) - len(message) - space())}{set_time}")
     
     
-    
+class Logger:
+    def __init__(self) -> None:
+        pass
+        
+    def config(self, **kwargs):
+        settings = kwargs
+        self.add_time = settings.get("add_time", True)
+        self.print_able = settings.get("print_able", True)
+
+    def info(self, message):
+        log(message, Status.INFO, self.add_time, self.print_able)
+        
+    def error(self, message):
+        log(message, Status.ERROR, self.add_time, self.print_able)
+        
+    def warn(self, message):
+        log(message, Status.WARN, self.add_time, self.print_able)
+        
+    def done(self, message):
+        log(message, Status.DONE, self.add_time, self.print_able)

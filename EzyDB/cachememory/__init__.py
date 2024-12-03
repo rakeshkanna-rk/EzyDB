@@ -3,7 +3,6 @@
 ### Classes and Functions
 
 - `DatabaseManagement`
-- `BinaryDatabaseManagement`
 
 ### Usage for DatabaseManagement
 
@@ -28,7 +27,5 @@ print("Furniture priced >= 150:", json.dumps(results, indent=4))
 
 """
 from .json_cache import DatabaseManagement
-from .binary_cache import BinaryDatabaseManagement
-from .csv_cache import CSVDatabaseManagement
 
 __all__ = ['DatabaseManagement', 'BinaryDatabaseManagement']

@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from dummydb import JsonDB, Query
+from EzyDB import JsonDB, Query
 
 db = JsonDB()
 table = "shop.json"

@@ -1,8 +1,13 @@
 import requests
 import json
+from EzyDB.logmsg import Logger
+
+log = Logger()
+log.config(add_time=True, print_able=True)
+
 def git_fetch(key, key2=None):
     # Step 1: Fetch the raw JSON file from GitHub
-    url = "https://raw.githubusercontent.com/ezycode-org/EzyDB/main/plugin.json"
+    url = "https://raw.githubusercontent.com/ezycode-org/EzyDB/refs/heads/main/plugins.json"
     response = requests.get(url)
 
     if response.status_code == 200:
@@ -15,9 +20,11 @@ def git_fetch(key, key2=None):
         else:
             value = data[key]
 
+        log.info(f"Plugin info has been fetched")
+
         return value
     
     else:
-        print(f"Error fetching file: {response.status_code}")
+        log.error(f"Failed to fetch data from GitHub: {response.status_code}")
         return None
 
