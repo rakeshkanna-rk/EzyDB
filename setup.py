@@ -16,6 +16,6 @@ setup(
     packages=find_packages(),
     keywords=['database', 'db', 'nosql', 'json', 'bson', 'storage', 'store'],
     install_requires=
-        [],
-    entry_points={"console_scripts":["ezydb = ezydb:main"]}
+        ["textPlay"],
+    entry_points={"console_scripts":["EzyDB = EzyDB: cmdline"]}
 )

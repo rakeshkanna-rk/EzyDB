@@ -29,3 +29,7 @@ env/
 # Build files
 dist/
 *.egg-info/
+
+# Developer files
+.user
+.todo
