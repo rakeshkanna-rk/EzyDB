@@ -75,7 +75,7 @@ def get_plugins():
     Fetches and displays available plugins from the GitHub repository.
     """
     try:
-        all_plugins = git_fetch("plugins")
+        all_plugins:dict = git_fetch("plugins")
         plugins = all_plugins.get("data_format", [])
         cli = all_plugins.get("cli", [])
         print("\nPlugins:")
@@ -153,7 +153,7 @@ def install(plugin=None, all=False):
 
 @click.command()
 @click.option("--plugin", "-p", help="Plugin to update", required=False)
-def update(plugin=None):
+def update(plugin:str=None):
     """
     Updates a specified plugin or the main EzyDB package.
     """
