@@ -28,6 +28,7 @@ env/
 
 # Build files
 dist/
+build/
 *.egg-info/
 
 # Developer files
