@@ -1,6 +1,6 @@
 import requests
 import json
-from .logmsg import Logger
+from textPlay.logmsg import Logger
 
 log = Logger()
 log.config(add_time=True, print_able=True)

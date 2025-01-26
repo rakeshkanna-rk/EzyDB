@@ -4,7 +4,7 @@ import textPlay as tp
 from textPlay.colors import *
 import importlib
 import threading
-from .logmsg import Logger
+from textPlay.logmsg import Logger
 from .plugin import git_fetch
 from textPlay import Spinner
 import subprocess
