@@ -1,6 +1,6 @@
 {
   "name": "EzyDB",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "description": "EzyDB is a lightweight, file-based NoSQL database system designed for Python developers.",
   "author": "Rakesh Kanna",
   "author_email": "rakeshkanna0108@gmail.com",
