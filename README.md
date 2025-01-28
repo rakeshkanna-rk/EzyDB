@@ -1,10 +1,9 @@
 # **EzyDB**  
 EzyDB is a lightweight, file-based NoSQL database system designed for Python developers.
-
-
+  
 > [!WARNING]  
 > This tool is in **BETA** / **DEVELOPMENT** stage. Please use latest version.   
-
+  
 ## **Installation**
 ```bash
 pip install EzyDB
@@ -137,7 +136,7 @@ Retrieves the name of the database directory.
 
 ---
 
-**`update(key, new_value, table: str = None)`
+**`update(key, new_value, table: str = None)`**
 **Description**:  
 Updates the value associated with a key in the specified table.
 
@@ -246,8 +245,9 @@ print(results)
 ```
 
 ## **Contributing**
-If you'd like to contribute to EzyDB, please fork the repository and create a pull request.  
-[Open an Issue](https://github.com/EzyDB-org/EzyDB/issues)  
+We welcome contributions! Feel free to fork the repository, submit issues, or create pull requests to help us improve. Let's build something amazing together! 🚀 
+[Open a Fork](https://github.com/EzyCode-org/EzyDB/fork)
+[Open an Issue](https://github.com/EzyCode-org/EzyDB/issues)  
 [Open a Pull Request](https://github.com/EzyCode-org/EzyDB/pulls)
 
 ## **Package Detials**
