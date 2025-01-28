@@ -1,2 +1,3 @@
-textPlay
+textPlay==1.1.5
 click
+AutoRunCmd==0.1.1

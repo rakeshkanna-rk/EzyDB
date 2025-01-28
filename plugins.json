@@ -1,4 +1,5 @@
 {
+  "all":["bson", "csv", "cli"],
   "plugins": { "data_format": ["Json", "Bson", "CSV"], "cli": ["EzyDB-cli"] },
   "cli": { "name": "EzyDB-cli", "version": "0.1.0" },
   "json": { "name": "EzyDB", "version": "0.1.0" },

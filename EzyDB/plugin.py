@@ -1,6 +1,10 @@
 import requests
 import json
+<<<<<<< HEAD
 from .logmsg import Logger
+=======
+from textPlay.logmsg import Logger
+>>>>>>> ezydb/main
 
 log = Logger()
 log.config(add_time=True, print_able=True)

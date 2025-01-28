@@ -4,9 +4,9 @@ import textPlay as tp
 from textPlay.colors import *
 import importlib
 import threading
-from logmsg import Logger
-from plugin import git_fetch
-from textPlay import progress_bar_loader
+from textPlay.logmsg import Logger
+from .plugin import git_fetch
+from textPlay import Spinner
 import subprocess
 import itertools
 import time
@@ -14,19 +14,15 @@ import time
 log = Logger()
 log.config(add_time=True, print_able=True)
 
+spinner = Spinner()
 
-install_animation = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
-def spinner_animation(stop_event):
-    spinner = itertools.cycle(install_animation)
-    while not stop_event.is_set():
-        sys.stdout.write(next(spinner))  # Write the next spinner character
-        sys.stdout.flush()               # Force the character to display
-        time.sleep(0.1)                  # Wait a bit before the next character
-        sys.stdout.write('\b')           # Backspace to overwrite the character
+@click.group()
+def cmd_cli():
+    """
+    EzyDB CLI tool entry point.
+    """
+    print("\n\tEzyDB CLI\n")
 
-    # Clear the spinner when stopping
-    sys.stdout.write(' ')  # Write a space to clear the spinner
-    sys.stdout.write('\b') # Move back again to overwrite the space with the next output
 
 def install_package(cmd: str):
     """
@@ -37,18 +33,13 @@ def install_package(cmd: str):
     """
     try:
 
-        stop_thread = threading.Event()
-        thread = threading.Thread(target=spinner_animation, args=(stop_thread,), daemon=True)
-        thread.start()
-
+        spinner.start()
         result = subprocess.run(cmd.split(" "), stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-
-        stop_thread.set()
-        thread.join()
+        spinner.stop()
 
         print()
         if result.returncode == 0:
-            log.done(f"Successfully executed: {cmd}")
+            log.done(f"Successfully installed: {cmd}")
         else:
             log.error(f"Command failed: {cmd}")
     except Exception as e:
@@ -88,25 +79,18 @@ def get_plugins():
     except Exception as e:
         log.error(f"Failed to fetch plugins: {e}")
 
-@click.group()
-def cli():
-    """
-    EzyDB CLI tool entry point.
-    """
-    print("\n\tEzyDB CLI\n")
-
 @click.command()
 def playground():
     """
     Runs the EzyDB CLI playground.
     """
     if is_package_installed("EzyDB-cli"):
-        tp.backend_exec("EzyDB-cli")
+        tp.osExecute("EzyDB-cli")
     else:
         log.error("EzyDB-cli is not installed")
-        chose = input(f"\n:: Do you want to install it? (y/n){BLUE}[y]{RESET}: ")
+        chose = input(f"\nDo you want to install it? (y/n){BLUE}[y]{RESET}: ")
         if chose.lower() == "y":
-            data = git_fetch("cli")
+            data:dict = git_fetch("cli")
             if data:
                 n, v = data.get("name"), data.get("version")
                 if n and v:
@@ -116,7 +100,7 @@ def playground():
             else:
                 log.error("Failed to fetch CLI plugin data")
         else:
-            log.info("You have chosen not to install EzyDB-cli")
+            log.info("EzyDB-cli installation aborted!")
             sys.exit(1)
 
 @click.command()
@@ -170,9 +154,6 @@ def update(plugin:str=None):
     except Exception as e:
         log.error(f"Failed to process update command: {e}")
 
-cli.add_command(playground)
-cli.add_command(install)
-cli.add_command(update)
-
-if __name__ == "__main__":
-    cli()
+cmd_cli.add_command(playground)
+cmd_cli.add_command(install)
+cmd_cli.add_command(update)

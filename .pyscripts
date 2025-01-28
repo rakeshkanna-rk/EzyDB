@@ -1,0 +1,6 @@
+# Line Of Configuration (LOC) file = .pyscripts [Fri Dec 20 00:48:48 2024]
+
+[py.reset]
+convert = python setup.py sdist bdist_wheel
+uninstall = pip uninstall EzyDB -y
+install = pip install dist/EzyDB-0.1.0-py3-none-any.whl

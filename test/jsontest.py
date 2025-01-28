@@ -4,7 +4,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 
 from EzyDB import JsonDB, Query
 
-db = JsonDB()
+db = JsonDB("test/.testDB")
 table = "shop.json"
 db.usetable(table)
 
