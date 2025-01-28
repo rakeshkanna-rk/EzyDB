@@ -242,7 +242,7 @@ print(results)
 ```
 
 ## **Example Query**
-Get a brief overview of the database management using EzyDB with [EXAMPLE QUERY](https://github.com/EzyCode-org/EzyDB/blob/main/example)
+Get a brief overview of the database management using EzyDB with [EXAMPLE QUERY](https://github.com/EzyCode-org/EzyDB/blob/main/example/README.md)
 
 ## **Contributing**
 We welcome contributions! Feel free to fork the repository, submit issues, or create pull requests to help us improve. Let's build something amazing together! 🚀 
