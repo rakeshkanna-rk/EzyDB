@@ -5,6 +5,10 @@ EzyDB is a lightweight, file-based NoSQL database system designed for Python dev
 > [!WARNING]  
 > This tool is in **BETA** / **DEVELOPMENT** stage. Please use latest version.   
 
+## **Installation**
+```bash
+pip install EzyDB
+```
 
 # JsonDB Class Documentation
 
@@ -14,7 +18,7 @@ The `JsonDB` class provides an interface to interact with a file-based JSON data
 
 ## **Methods**
 
-### `__init__(self, dbname: str = ".db")`
+**`__init__(dbname: str = ".db")`**
 **Description**:  
 Initializes the database with the specified directory name.
 
@@ -26,7 +30,7 @@ None
 
 ---
 
-### `usetable(self, tablename)`
+**`usetable(tablename)`**
 **Description**:  
 Sets the active table for subsequent database operations.
 
@@ -38,7 +42,7 @@ None
 
 ---
 
-### `insert(self, key, value, table: str = None)`
+**`insert(key, value, table: str = None)`**
 **Description**:  
 Inserts a key-value pair into the specified table.
 
@@ -55,7 +59,7 @@ None
 
 ---
 
-### `get(self, key, table: str = None)`
+**`get(key, table: str = None)`**
 **Description**:  
 Retrieves the value associated with a key.
 
@@ -71,7 +75,7 @@ Retrieves the value associated with a key.
 
 ---
 
-### `getall(self, table: str = None)`
+**`getall(table: str = None)`**
 **Description**:  
 Retrieves all key-value pairs from the specified table.
 
@@ -83,7 +87,7 @@ Retrieves all key-value pairs from the specified table.
 
 ---
 
-### `getnested(self, keyline: str, table: str = None)`
+**`getnested(keyline: str, table: str = None)`**
 **Description**:  
 Retrieves a value from a nested key structure using a dot-separated keyline.
 
@@ -96,7 +100,7 @@ Retrieves a value from a nested key structure using a dot-separated keyline.
 
 ---
 
-### `delete(self, key, table: str = None)`
+**`delete(key, table: str = None)`**
 **Description**:  
 Deletes a key-value pair from the specified table.
 
@@ -112,7 +116,7 @@ None
 
 ---
 
-### `drop(self, table: str = None)`
+**`drop(table: str = None)`**
 **Description**:  
 Deletes the specified table file from the database.
 
@@ -124,7 +128,7 @@ None
 
 ---
 
-### `getdb(self)`
+**`getdb()`**
 **Description**:  
 Retrieves the name of the database directory.
 
@@ -133,7 +137,7 @@ Retrieves the name of the database directory.
 
 ---
 
-### `update(self, key, new_value, table: str = None)`
+**`update(key, new_value, table: str = None)`
 **Description**:  
 Updates the value associated with a key in the specified table.
 
@@ -150,7 +154,7 @@ None
 
 ---
 
-### `search(self, table: str, query: Query)`
+**`search(table: str, query: Query)`**
 **Description**:  
 Searches for data in the specified table using a `Query` object.
 
@@ -163,7 +167,7 @@ Searches for data in the specified table using a `Query` object.
 
 ---
 
-### `flush(self, table: str = None)`
+**`flush(table: str = None)`**
 **Description**:  
 Resets the specified table, removing all its data.
 
@@ -175,7 +179,7 @@ None
 
 ---
 
-### `archive(self, table: str = None)`
+**`archive(table: str = None)`**
 **Description**:  
 Archives the specified table for backup or storage purposes.
 
@@ -187,7 +191,7 @@ None
 
 ---
 
-### `unarchive(self, table: str = None)`
+**`unarchive(table: str = None)`**
 **Description**:  
 Restores an archived table.
 
@@ -199,7 +203,7 @@ None
 
 ---
 
-### `cache(self, table)`
+**`cache(table)`**
 **Description**:  
 Loads the specified table into memory for faster access.
 
@@ -211,7 +215,7 @@ None
 
 ---
 
-### `searchCache(self, table: str, query: Query)`
+**`searchCache(table: str, query: Query)`**
 **Description**:  
 Searches for data in a cached table using a `Query` object for faster performance.
 
@@ -240,3 +244,16 @@ query = Query().key("age") > 20
 results = db.search("users.json", query)
 print(results)
 ```
+
+## **Contributing**
+If you'd like to contribute to EzyDB, please fork the repository and create a pull request.  
+[Open an Issue](https://github.com/EzyDB-org/EzyDB/issues)  
+[Open a Pull Request](https://github.com/EzyCode-org/EzyDB/pulls)
+
+## **Package Detials**
+**Name** : EzyDB  
+**Version** : 1.0.1  
+**Author** : Rakesh Kanna  
+**Mail** : [**rakeshkanna0108@gmail.com**](mailto:rakeshkanna0108@gmail.com)  
+**GitHub** : **https://github.com/EzyDB-org/EzyDB/**  
+**PyPI** : **https://pypi.org/project/EzyDB/**  
