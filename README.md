@@ -1,14 +1,11 @@
 # **EzyDB**  
 EzyDB is a lightweight, file-based NoSQL database system designed for Python developers.
-  
-> [!WARNING]  
-> This tool is in **BETA** / **DEVELOPMENT** stage. Please use latest version.   
-  
+   
 ## **Installation**
 ```bash
 pip install EzyDB
 ```
-
+  
 # JsonDB Class Documentation
 
 The `JsonDB` class provides an interface to interact with a file-based JSON database. It allows inserting, updating, retrieving, and querying data in a structured and efficient manner.
@@ -243,6 +240,9 @@ query = Query().key("age") > 20
 results = db.search("users.json", query)
 print(results)
 ```
+
+## **Example Query**
+Get a brief overview of the database management using EzyDB with [EXAMPLE QUERY](https://github.com/EzyCode-org/EzyDB/blob/main/example)
 
 ## **Contributing**
 We welcome contributions! Feel free to fork the repository, submit issues, or create pull requests to help us improve. Let's build something amazing together! 🚀 
